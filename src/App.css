@@ -69,14 +69,14 @@ body {
   padding: 10px;
 }
 
-.no-history-con{
+.no-history-con {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 90vh;
 }
 
-.no-history-txt{
+.no-history-txt {
   font-size: 20px;
   font-weight: bold;
 }

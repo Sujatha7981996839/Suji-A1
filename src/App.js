@@ -1,4 +1,4 @@
-dimport {Components} from 'react'
+import {Components} from 'react'
 
 import './App.css'
 
@@ -82,18 +82,19 @@ const initialHistoryList = [
 // Replace your code here
 
 class App extends Component {
-  state = {userInput: '', historyList: initialHistoryList}
+  state = 
+  {userInput: '', historyList: initialHistoryList}
 
   updateSearchRes = event => {
     this.setState({userInput: event.target.value})
   }
 
   onDeleteHistory = id => {
-     const {historyList} = this.state
+    const {historyList} = this.state
 
-     const filterHistory = historyList.filter(eachItem => eachItem.id != id)
+    const filterHistory = historyList.filter(eachItem => eachItem.id != id)
 
-     this.setState({historyList: filterHistory})
+    this.setState({historyList: filterHistory})
   }
 
   render() {
@@ -102,28 +103,28 @@ class App extends Component {
       eachItem.title.toLowerCase().includes(userInput.toLowerCase()),
     )
 
-    let browserHistoryOutput;
+    let browserHistoryOutput
 
     if (userSearchHistory.length != 0) {
       browserHistoryOutput = (
         <ul className="history-items-con">
-          {userSearchHistory.map(eachItem=(
-            <HistoryItem historyDetails = {eachItem}
-              key={eachItem.id}
-              onDeleteHistory={this.onDeleteHistory} />
-
-          ))}
+          {userSearchHistory.map(
+            (eachItem = (
+              <HistoryItem
+                historyDetails={eachItem}
+                key={eachItem.id}
+                onDeleteHistory={this.onDeleteHistory}
+              />
+            )),
+          )}
         </ul>
       )
-    }
-
-    else{
+    } else {
       browserHistoryOutput = (
         <div className="no-history-con">
           <p className="no-history-txt">There is no history to show</p>
         </div>
       )
-      
     }
 
     return (
@@ -148,9 +149,7 @@ class App extends Component {
             />
           </div>
         </div>
-        <div className="browser-history-body-con">
-          {browserHistoryOutput}
-        </div>
+        <div className="browser-history-body-con">{browserHistoryOutput}</div>
       </div>
     )
   }
